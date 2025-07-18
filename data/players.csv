@@ -1,91 +1,149 @@
 player_name,heat,division
-A,1,Open
-B,1,Open
-C,1,Open
-D,1,Open
-E,1,Open
-F,1,Open
-G,2,Open
-H,2,Open
-I,2,Open
-J,2,Open
-K,2,Open
-L,2,Open
-M,3,Open
-N,3,Open
-O,3,Open
-P,3,Open
-Q,3,Open
-R,3,Open
-S,4,Open
-T,4,Open
-U,4,Open
-V,4,Open
-W,4,Open
-X,4,Open
-Y,5,Open
-Z,5,Open
-AA,5,Open
-AB,5,Open
-AC,5,Open
-AD,5,Open
-AE,1,Women
-AF,1,Women
-AG,1,Women
-AH,1,Women
-AI,1,Women
-AJ,1,Women
-AK,2,Women
-AL,2,Women
-AM,2,Women
-AN,2,Women
-AO,2,Women
-AP,2,Women
-AQ,3,Women
-AR,3,Women
-AS,3,Women
-AT,3,Women
-AU,3,Women
-AV,3,Women
-AW,4,Women
-AX,4,Women
-AY,4,Women
-AZ,4,Women
-BA,4,Women
-BB,4,Women
-BC,5,Women
-BD,5,Women
-BE,5,Women
-BF,5,Women
-BG,5,Women
-BH,5,Women
-BI,1,Masters
-BJ,1,Masters
-BK,1,Masters
-BL,1,Masters
-BM,1,Masters
-BN,1,Masters
-BO,2,Masters
-BP,2,Masters
-BQ,2,Masters
-BR,2,Masters
-BS,2,Masters
-BT,2,Masters
-BU,3,Masters
-BV,3,Masters
-BW,3,Masters
-BX,3,Masters
-BY,3,Masters
-BZ,3,Masters
-CA,4,Masters
-CB,4,Masters
-CC,4,Masters
-CD,4,Masters
-CE,4,Masters
-CF,4,Masters
-CG,5,Masters
-CH,5,Masters
-CI,5,Masters
-CJ,5,Masters
-CK,5,Masters
-CL,5,Masters
+Nir Bar Dea,0,Competitive - Open to All
+Greg Jensen,0,Competitive - Open to All
+Bob Prince,0,Competitive - Open to All
+Ray Dalio,0,Competitive - Open to All
+Porter Diehl,0,Competitive - Open to All
+Scott Peterson (***),1,Competitive - Open to All
+Adam Banatwala,1,Competitive - Open to All
+Graham Miller,1,Competitive - Open to All
+Larry Cofsky,1,Competitive - Open to All
+Saarthak Gupta,1,Competitive - Open to All
+Daniel Williams,2,Competitive - Open to All
+Odi Quevillon,2,Competitive - Open to All
+Aiden Sessa,2,Competitive - Open to All
+Grant Morse,2,Competitive - Open to All
+Liam McNamara,2,Competitive - Open to All
+Sam Green,3,Competitive - Open to All
+Ed Bracey,3,Competitive - Open to All
+Abhishek Bansal,3,Competitive - Open to All
+Alec Gironda,3,Competitive - Open to All
+Harrison Orlando,3,Competitive - Open to All
+Kamaal Thomas,3,Competitive - Open to All
+Santi Weight,4,Competitive - Open to All
+Eric Osband,4,Competitive - Open to All
+George Read,4,Competitive - Open to All
+Alex Schiller,4,Competitive - Open to All
+Hayden Welty,4,Competitive - Open to All
+Lucas Voichick,4,Competitive - Open to All
+Scott Conn,5,Competitive - Open to All
+Kevin Campbell 2,5,Competitive - Open to All
+Kyle Lindgren,5,Competitive - Open to All
+Amaar Jeyasothy,5,Competitive - Open to All
+Ian McInnis,5,Competitive - Open to All
+Matt Schmit,5,Competitive - Open to All
+Sean Macrae,6,Competitive - Open to All
+Kyle Easop,6,Competitive - Open to All
+Robert Himel,6,Competitive - Open to All
+Andrew Bachmann,6,Competitive - Open to All
+James London,6,Competitive - Open to All
+Matt Song,6,Competitive - Open to All
+Scott Mait,7,Competitive - Open to All
+Rob Hurn,7,Competitive - Open to All
+Cole Breen,7,Competitive - Open to All
+Armaan Dugar,7,Competitive - Open to All
+Jake Davidson,7,Competitive - Open to All
+Max Bahdanovich,7,Competitive - Open to All
+Steve Cestaro,8,Competitive - Open to All
+Rohan Alur,8,Competitive - Open to All
+Richard Zhang 2,8,Competitive - Open to All
+Ben Kalfas,8,Competitive - Open to All
+Jarrod Gerstein,8,Competitive - Open to All
+Maxwell Sheremeta,8,Competitive - Open to All
+Ted Bossidy,9,Competitive - Open to All
+Zach Janof,9,Competitive - Open to All
+Will Usher,9,Competitive - Open to All
+Berkan Gunel,9,Competitive - Open to All
+Jason Koczeniak,9,Competitive - Open to All
+Michael Basili,9,Competitive - Open to All
+Thomas Maisonneuve,10,Competitive - Open to All
+Gabriel Hsu,10,Competitive - Open to All
+Luke D Antonio,10,Competitive - Open to All
+Bill Cash,10,Competitive - Open to All
+John Muyres,10,Competitive - Open to All
+Matt Gentile,10,Competitive - Open to All
+Tim Hoving,11,Competitive - Open to All
+Dylan Lynch,11,Competitive - Open to All
+Zane Bookbinder,11,Competitive - Open to All
+Brian Grippando,11,Competitive - Open to All
+Johnny Riordan,11,Competitive - Open to All
+Neal Patel,11,Competitive - Open to All
+Udai Baisiwala,1,Competitive - Open to All
+Dylan Young,12,Interns Open
+Teddy Ganea,12,Interns Open
+Carl Wu,12,Interns Open
+JP Lucaci,12,Interns Open
+Oleg Biletsky,12,Interns Open
+Wyatt Currie,2,Competitive - Open to All
+Kenneth Shinn,13,Competitive - Open to All
+Johnny Miri,13,Competitive - Open to All
+Charlie Jackson,13,Competitive - Open to All
+Kanishk Nazareth,13,Competitive - Open to All
+Yashvardhan Bardoloi,13,Competitive - Open to All
+Kenza Wilks,1,Competitive - Women's
+Alex Page,1,Interns Open
+Karina Franke,1,Interns Open
+Theo Datta,1,Interns Open
+Tim Chee,1,Interns Open
+Zach Halberstam,1,Interns Open
+Felix Huang,2,Competitive - Women's
+Karim Sigvaldason,2,Interns Open
+Eva Zhang,2,Interns Open
+Arush Guliani,2,Interns Open
+Bennett Lewis,2,Interns Open
+Bowser Liu,4,Competitive - Women's
+Daniel Chuang,3,Interns Open
+Eric Park,3,Interns Open
+Shayla Collins,3,Interns Open
+Hans Elasri,3,Interns Open
+Himanshu Sethia,3,Interns Open
+Jake Tuckerman,1,Competitive - Women's
+Jasper Datta,4,Interns Open
+Josh Kaplan,4,Interns Open
+Jonathon Valente,4,Interns Open
+Matthew Casertano,4,Interns Open
+Nathan Tamkin,4,Interns Open
+Nicholas Koh,2,Competitive - "Silver" Sliders (45+)
+Rohan Selva-Radov,2,Interns Open
+Sair Shaikh,1,Interns Open
+Michael Parodi,2,Interns Open
+Angelica Cramer,1,Interns Open
+Hadley Haslegrave,1,Competitive - "Silver" Sliders (45+)
+Kelly Fuentes,3,Competitive - Women's
+Michelle Treglia,2,Competitive - Women's
+Vanessa Feng,3,Competitive - Women's
+Chance Masloff,2,Competitive - Women's
+Helena Mello Franco,2,Competitive - Women's
+Kira Hobson,4,Competitive - Women's
+Rachael Adelson,3,Competitive - Women's
+Nikki Amico,4,Competitive - Women's
+Dana Kingman,3,Competitive - Women's
+Hayley Williamson,3,Competitive - Women's
+Maddie Meltz,5,Competitive - Women's
+Priscilla Huh,4,Competitive - Women's
+Memi Kirikoglu,5,Competitive - Women's
+Ellie Sullivan,4,Competitive - Women's
+Jane Manning,4,Competitive - Women's
+Megan Howard,1,Competitive - Women's
+Sabrina Zaffiro,5,Intern - Women's
+Taylor Gavula,1,Competitive - Women's
+Anna Ferris,5,Intern - Women's
+Jordan Brown,5,Competitive - Women's
+Julia Shephard,2,Competitive - Women's
+Skylar Yang,1,Intern - Women's
+Megan Nilon,2,Intern - Women's
+Annie Zhu,1,Intern - Women's
+Ava Brown,1,Intern - Women's
+Sydney Fritz,1,Intern - Women's
+Katelyn Cai,2,Competitive - "Silver" Sliders (45+)
+Thomas Olkoski,1,Competitive - "Silver" Sliders (45+)
+Dan Nelson,1,Competitive - "Silver" Sliders (45+)
+Maria Garmonina,2,Competitive - "Silver" Sliders (45+)
+Matt Schardt,1,Competitive - "Silver" Sliders (45+)
+Rick Sharma,1,Competitive - "Silver" Sliders (45+)
+Will Pompa,2,Competitive - "Silver" Sliders (45+)
+Greg Bshara,2,Competitive - "Silver" Sliders (45+)
+Joel Whidden,1,Competitive - "Silver" Sliders (45+)
+Noam Ohring,2,Competitive - "Silver" Sliders (45+)
+Ron Bledsoe,2,Competitive - "Silver" Sliders (45+)
+Mark Meckler,2,Competitive - "Silver" Sliders (45+)
