@@ -91,7 +91,6 @@ def main() -> None:
                 db_keyed[key].active = True
             else:
                 db.add(Player(
-                    id=str(uuid.uuid4()),
                     player_name=name, heat=heat, division=div,
                     active=True, dropped_out=False
                 ))
@@ -107,7 +106,7 @@ def main() -> None:
             if prop in db_props:
                 db_props[prop].active = True
             else:
-                db.add(PropUniverse(id=str(uuid.uuid4()), prop_name=prop, active=True))
+                db.add(PropUniverse(prop_name=prop, active=True))
 
         for name, p in db_props.items():
             if name not in new_props:
