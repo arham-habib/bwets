@@ -3,6 +3,45 @@
 <h2>Advance Market</h2>
 <p class="pool-line">Pool total: ${{ "%.2f"|format(pool_total) }}</p>
 
+<h3>Current Odds (Summary)</h3>
+<table class="odds-summary">
+  <thead>
+    <tr>
+      <th>Division</th>
+      <th>Heat</th>
+      <th>Player</th>
+      <th>Decimal Odds</th>
+      <th>American Odds</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for div_name, heats in divisions.items() %}
+      {% for heat_num, runners in heats|dictsort %}
+        {% for p in runners %}
+          {% set o = odds.get(p.id|string, {"prob": 0, "stake": 0}) %}
+          {% if o.prob > 0 %}
+            {% set dec_odds = (1 / o.prob)|round(2) %}
+            {% if dec_odds == 1 %}
+              {% set am_str = "EVEN" %}
+            {% elif dec_odds >= 2 %}
+              {% set am_str = '+' ~ ((dec_odds - 1) * 100)|round(0)|int %}
+            {% else %}
+              {% set am_str = '-' ~ (100 / (dec_odds - 1))|round(0)|int %}
+            {% endif %}
+            <tr>
+              <td>{{ div_name }}</td>
+              <td>{{ heat_num }}</td>
+              <td>{{ p.player_name }}</td>
+              <td>{{ dec_odds }}</td>
+              <td>{{ am_str }}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
 {% for div_name, heats in divisions.items() %}
   <details class="division" {% if loop.first %}open{% endif %}>
     <summary>
