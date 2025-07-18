@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+flask
+sqlalchemy[asyncio]
+asyncpg
+psycopg2-binary
+python-jose
+python-dotenv
+requests
+jwt
+fastapi
+sqlalchemy
+gunicorn
+ßs
