@@ -22,4 +22,5 @@ VOLUME ["/data"]
 # ───────── entrypoint ────────s
 # 1. refresh csv -> db (non‑destructive)
 # 2. start Flask + FastAPI via python -m app
-CMD ["bash", "-c", "python scripts/refresh_entities.py && python -m app"]
+EXPOSE 8080
+CMD ["bash", "-c", "python -m scripts.refresh_entities && python -m app"]

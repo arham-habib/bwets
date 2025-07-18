@@ -1,26 +1,37 @@
-# fly.toml app configuration file generated for bwets on 2025-07-18T14:12:24-04:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'bwets'
-primary_region = 'ewr'
+app = "bwets"
 
 [build]
+  dockerfile = "Dockerfile"
 
-[[mounts]]
-  source = 'data'
-  destination = '/data'
+# delete the whole [deploy] section
+# [deploy]
+#   release_command = "python scripts/refresh_entities.py"
 
-[http_service]
+[[services]]
   internal_port = 8080
-  force_https = true
-  auto_stop_machines = 'stop'
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+  protocol      = "tcp"
+  processes     = ["app"]
+  [[services.ports]]
+    handlers = ["http"]
+    port     = 80
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port     = 443
 
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
+  [services.concurrency]
+    # allow one in-flight connection while the app warms up
+    soft_limit = 25
+    hard_limit = 50
+
+[checks]
+  [checks.http]
+    port = 8080
+    type = "http"
+    interval = "30s"
+    grace_period = "1m"   # gives the refresher up to 60 s
+    method = "get"
+    path = "/"
+
+[mounts]
+  source      = "data"   # name created by Fly
+  destination = "/data"
