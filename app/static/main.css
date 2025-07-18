@@ -1,0 +1,93 @@
+body { margin:0; background:#111; color:#eee; font-family:system-ui,sans-serif; }
+a   { color:#5ad; text-decoration:none; }
+header { background:#000; padding:1rem; display:flex; justify-content:space-between; }
+nav a { margin-left:1rem; }
+.hero { text-align:center; margin-top:2rem; }
+.big { font-size:3rem; font-weight:bold; }
+.card { background:#222; padding:1rem; margin:1rem 0; border-radius:8px; }
+.bet-form { display:inline-block; }
+.flash { list-style:none; padding:0; }
+.flash li { background:#272; margin:0.5rem 0; padding:0.5rem; border-radius:4px; }
+
+header { text-align:center; }
+.actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin:2rem 0; }
+.btn { background:#333; padding:1rem 2rem; border-radius:10px; text-align:center; color:#fff; width:160px; }
+.btn:hover { background:#555; }
+.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
+.name { font-size:1.2rem; font-weight:bold; }
+.flash li.error { background:#722; }
+
+
+/* accordion styling */
+details { border:1px solid #444; border-radius:6px; margin:0.5rem 0; }
+details[open] > summary { background:#333; }
+summary { cursor:pointer; padding:0.5rem 1rem; user-select:none; }
+
+/* bodies */
+.div-body, .heat-body { padding:0.5rem 1rem; }
+
+/* heat-body stacks runner cards vertically */
+.heat-body { display:flex; flex-direction:column; gap:0.5rem; }
+
+/* keep existing .card styling but make it full‑width */
+.card { background:#222; padding:0.7rem; border-radius:6px; }
+
+/* minor tweaks */
+.bet-form { margin-top:0.3rem; }
+.bet-form label { display:block; font-size:0.8rem; margin:0.2rem 0; }
+.bet-form input { width:90%; }
+
+/* ─────  Bet‑slip styling  ─────────────────────────────── */
+.bet-form {
+    margin-top:0.5rem;
+    background:#333;          /* grey card */
+    border-radius:8px;
+    padding:0.6rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.4rem;
+  }
+  
+  /* inputs inherit the site font, get soft corners */
+  .bet-form input[type="email"],
+  .bet-form input[type="number"] {
+    font-family:inherit;
+    background:#222;
+    border:1px solid #555;
+    border-radius:6px;
+    padding:4px 6px;
+    color:#eee;
+  }
+  
+  /* call‑to‑action button */
+  .bet-form button {
+    font-family:inherit;
+    background:#5ad;      /* same teal accent as links */
+    color:#000;
+    border:none;
+    border-radius:6px;
+    padding:6px 10px;
+    cursor:pointer;
+  }
+  
+  .bet-form button:hover {
+    background:#7cf;
+  }
+  
+  /* optional: shrink label font slightly */
+  .bet-form label { font-size:0.85rem; }
+  
+  .bet-form input[type="email"]  { max-width:200px }
+  .bet-form input[type="number"] { max-width:80px  }
+  .bet-form button               { max-width:90px  }
+
+  .pool-line { margin:0 0 1rem 0; color:#9cf; }
+
+.prop-sides { display:flex; gap:1rem; flex-wrap:wrap; }
+.side-form  { background:#333; border-radius:8px; padding:0.5rem;
+              width:140px; text-align:center; font-size:0.85rem; }
+.side-form button { max-width:90px; margin-top:0.3rem; }
+
+.credit { font-size:0.9rem; color:#888; margin-top:0.3rem; }
+.credit.full { flex-basis:100%; text-align:center; margin-top:1rem; }
+

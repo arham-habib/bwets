@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Advance Market</h2>
+<p class="pool-line">Pool total: ${{ "%.2f"|format(pool_total) }}</p>
+
+{% for div_name, heats in divisions.items() %}
+  <details class="division" {% if loop.first %}open{% endif %}>
+    <summary>
+      {{ div_name }} — Stake ${{ div_totals[div_name]|round(2) }}
+    </summary>
+    <div class="div-body">
+
+      {% for heat_num, runners in heats|dictsort %}
+        <details class="heat">
+          <summary>
+            Heat {{ heat_num }} — Stake ${{ heat_totals[(div_name, heat_num)]|round(2) }}
+          </summary>
+          <div class="heat-body">
+
+            {% for p in runners %}
+              {% set o = odds.get(p.id|string, {"prob":0, "stake":0}) %}
+              <div class="card">
+                <strong>{{ p.player_name }}</strong><br>
+                Stake $ {{ o.stake }}<br>
+                Prob {{ (o.prob*100)|round(1) }} %
+                <form action="{{ url_for('bet') }}" method="post" class="bet-form">
+                  <input type="hidden" name="market" value="advance">
+                  <input type="hidden" name="target_id" value="{{ p.id }}">
+                  <label>E‑mail <input type="email" name="email" required size="20" maxlength="40"></label>
+                  <label>$ <input type="number" name="amount" step="0.01" required size="6" maxlength="10"></label>
+                  <button type="submit" maxlength="10">Bet</button>
+                </form>
+              </div>
+            {% endfor %}
+
+          </div>
+        </details>
+      {% endfor %}
+
+    </div>
+  </details>
+{% endfor %}
+{% endblock %}

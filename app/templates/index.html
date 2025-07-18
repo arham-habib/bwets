@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h2>Total Wagered</h2>
+  <p class="big">${{ "%.2f"|format(cum) }}</p>
+</section>
+
+<section class="actions">
+  {% for b in buttons %}
+    <a class="btn" href="{{ b.href }}">
+      <strong>{{ b.title }}</strong><br>
+      <small>{{ b.desc }}</small>
+    </a>
+  {% endfor %}
+  <p class="credit full">by arham and crawford</p>
+</section>
+{% endblock %}s
+
+
