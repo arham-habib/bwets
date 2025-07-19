@@ -28,14 +28,17 @@
             {% else %}
               {% set am_str = '-' ~ (100 / (dec_odds - 1))|round(0)|int %}
             {% endif %}
-            <tr>
-              <td>{{ div_name }}</td>
-              <td>{{ heat_num }}</td>
-              <td><a href="#player-{{ p.id }}">{{ p.player_name }}</a></td>
-              <td>{{ dec_odds }}</td>
-              <td>{{ am_str }}</td>
-            </tr>
+          {% else %}
+            {% set dec_odds = "—" %}
+            {% set am_str = "—" %}
           {% endif %}
+          <tr>
+            <td>{{div_name }}</td>
+            <td>{{ heat_num }}</td>
+            <td><a href="#player-{{ p.id }}">{{ p.player_name }}</a></td>
+            <td>{{ dec_odds }}</td>
+            <td>{{ am_str }}</td>
+          </tr>
         {% endfor %}
       {% endfor %}
     {% endfor %}

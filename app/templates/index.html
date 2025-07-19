@@ -6,14 +6,20 @@
 </section>
 
 <section class="actions">
+  {% set buttons = [
+    {"href": "/advance", "title": "Advance Odds", "desc": "Who makes it out of the heats?"},
+    {"href": "/finals", "title": "Finals Odds", "desc": "Who wins the whole thing?"},
+    {"href": "/props", "title": "Prop Bets", "desc": "Head-to-heads, departments, and more"},
+    {"href": "/rules", "title": "Rules", "desc": "How betting works"}
+  ] %}
+
   {% for b in buttons %}
     <a class="btn" href="{{ b.href }}">
       <strong>{{ b.title }}</strong><br>
       <small>{{ b.desc }}</small>
     </a>
   {% endfor %}
+
   <p class="credit full">by arham and crawford</p>
 </section>
-{% endblock %}s
-
-
+{% endblock %}

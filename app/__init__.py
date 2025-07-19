@@ -135,7 +135,14 @@ def create_app():
         return render_template("props.html", props=props,
                             odds=odds, pool_total=pool_total)
 
+    @app.route("/rules")
+    def rules():
+        return render_template("rules.html")
+
+    
     return app
+
+
 
 # --- run both apps behind one server -----------------------
 def main():
