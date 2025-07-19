@@ -14,9 +14,7 @@ COPY . .
 # ───────── runtime env ───────
 ENV PYTHONUNBUFFERED=1 \
     FLASK_ENV=production \
-    DATABASE_URL=sqlite:////data/bwets.db \
-    FLASK_SECRET=your-secret-key-change-in-production
-
+    DATABASE_URL=sqlite:////data/bwets.db 
 # Fly volume mount point
 VOLUME ["/data"]
 
