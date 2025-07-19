@@ -5,6 +5,7 @@ from sqlalchemy import select, func
 from .models import SessionLocal, Player, PropUniverse, AdvanceBet, WinBet, PropBet, User
 from .api import api as fastapi_app
 from .odds import pool_odds, prop_odds
+from .payouts import calculate_all_payouts, get_payout_summary
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -219,6 +220,32 @@ def create_app():
     @app.route("/rules")
     def rules():
         return render_template("rules.html")
+
+    @app.route("/payouts", methods=["GET", "POST"])
+    @login_required
+    def payouts():
+        """Calculate and display payouts based on event results."""
+        if request.method == "POST":
+            # This would be where you input the actual results
+            # For now, this is a placeholder for the payout calculation interface
+            results = {
+                'advance_winners': request.form.getlist('advance_winners'),
+                'win_winner': request.form.get('win_winner'),
+                'prop_results': {}  # Would parse from form data
+            }
+            
+            with SessionLocal() as db:
+                payouts = calculate_all_payouts(db, results)
+                summary = get_payout_summary(db, results)
+            
+            return render_template("payouts.html", payouts=payouts, summary=summary)
+        
+        # GET request - show payout calculation form
+        with SessionLocal() as db:
+            players = db.execute(select(Player).where(Player.active == True)).scalars().all()
+            props = db.execute(select(PropUniverse).where(PropUniverse.active == True)).scalars().all()
+        
+        return render_template("payouts_form.html", players=players, props=props)
 
     
     return app

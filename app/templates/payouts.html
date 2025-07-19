@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-content">
+<h2>🏆 Payout Results</h2>
+
+{% if payouts %}
+  <div class="payout-summary">
+    <h3>💰 Total Payouts by User</h3>
+    <table class="payouts-table">
+      <thead>
+        <tr>
+          <th>User Email</th>
+          <th>Total Payout</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for email, amount in payouts.items() %}
+          <tr>
+            <td>{{ email }}</td>
+            <td>${{ "%.2f"|format(amount) }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <p class="total-payout">
+      <strong>Total Payouts: ${{ "%.2f"|format(payouts.values()|sum) }}</strong>
+    </p>
+  </div>
+
+  {% if summary and summary.market_breakdown %}
+    <div class="market-breakdown">
+      <h3>📊 Market Breakdown</h3>
+      
+      {% if summary.market_breakdown.advance %}
+        <div class="market-section">
+          <h4>🏁 Advance Market</h4>
+          <p>Total Pool: ${{ "%.2f"|format(summary.market_breakdown.advance.total_pool) }}</p>
+          <p>Payout Pool: ${{ "%.2f"|format(summary.market_breakdown.advance.payout_pool) }}</p>
+          <p>Winners: {{ summary.market_breakdown.advance.winners|length }} players</p>
+        </div>
+      {% endif %}
+      
+      {% if summary.market_breakdown.win %}
+        <div class="market-section">
+          <h4>🏆 Win Market</h4>
+          <p>Total Pool: ${{ "%.2f"|format(summary.market_breakdown.win.total_pool) }}</p>
+          <p>Payout Pool: ${{ "%.2f"|format(summary.market_breakdown.win.payout_pool) }}</p>
+          <p>Winner: {{ summary.market_breakdown.win.winner }}</p>
+        </div>
+      {% endif %}
+      
+      {% if summary.market_breakdown.props %}
+        <div class="market-section">
+          <h4>🎲 Prop Bets</h4>
+          <p>Total Pool: ${{ "%.2f"|format(summary.market_breakdown.props.total_pool) }}</p>
+          <p>Payout Pool: ${{ "%.2f"|format(summary.market_breakdown.props.payout_pool) }}</p>
+        </div>
+      {% endif %}
+      
+      <p class="house-take">
+        <strong>House Take: {{ "%.1f"|format(summary.house_take * 100) }}%</strong>
+      </p>
+    </div>
+  {% endif %}
+{% else %}
+  <div class="no-payouts">
+    <p>No payouts to calculate. Make sure you have:</p>
+    <ul>
+      <li>Selected advance winners</li>
+      <li>Selected overall winner</li>
+      <li>Determined prop bet outcomes</li>
+    </ul>
+  </div>
+{% endif %}
+
+<div class="actions">
+  <a href="{{ url_for('payouts') }}" class="btn">Calculate New Payouts</a>
+  <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+</div>
+</div>
+{% endblock %} 

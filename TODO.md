@@ -9,3 +9,4 @@
 - [X] Every notification banner is being duplicated, figure out why and change it (for login, placing a bet, etc etc)
 - [X] Add consistent side padding to all pages (like rules page)
 - [X] Add toggleable division summary tables to both Advance and Win pages
+- [X] Update Dockerfile and schema for user authentication support

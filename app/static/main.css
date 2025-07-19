@@ -226,6 +226,75 @@ details.division-summary { margin:1.5rem 0; }
   padding: 10px 15px;
 }
 
+/* Payout table styling */
+.payouts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.payouts-table th, .payouts-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.payouts-table th {
+  background: #333;
+  font-weight: bold;
+  color: #5ad;
+}
+
+.payouts-table tr:hover {
+  background: #2a2a2a;
+}
+
+.total-payout {
+  font-size: 1.2rem;
+  color: #5ad;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #222;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.market-section {
+  background: #222;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border-left: 4px solid #5ad;
+}
+
+.market-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #5ad;
+}
+
+.house-take {
+  background: #333;
+  padding: 0.8rem;
+  border-radius: 6px;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.no-payouts {
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.no-payouts ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .big { font-size: 2rem; }

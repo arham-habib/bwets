@@ -14,13 +14,15 @@ COPY . .
 # ───────── runtime env ───────
 ENV PYTHONUNBUFFERED=1 \
     FLASK_ENV=production \
-    DATABASE_URL=sqlite:////data/bwets.db
+    DATABASE_URL=sqlite:////data/bwets.db \
+    FLASK_SECRET=your-secret-key-change-in-production
 
 # Fly volume mount point
 VOLUME ["/data"]
 
 # ───────── entrypoint ────────s
 # 1. refresh csv -> db (non‑destructive)
-# 2. start Flask + FastAPI via python -m app
+# 2. migrate users table if needed
+# 3. start Flask + FastAPI via python -m app
 EXPOSE 8080
-CMD ["bash", "-c", "python -m scripts.refresh_entities && python -m app"]
+CMD ["bash", "-c", "python -m scripts.refresh_entities && python -m scripts.migrate_users && python -m app"]
