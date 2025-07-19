@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>bwets</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 
   <header>
     <h1><a href="{{ url_for('index') }}">bwets</a></h1>
+    <nav>
+      <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    </nav>
   </header>
   
-  {% with msgs = get_flashed_messages(with_categories=true) %}
-    {% if msgs %}
-      <ul class="flash">
-        {% for cat, msg in msgs %}
-          <li class="{{ cat }}">{{ msg }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endwith %}
-
   <main>
-    {% with msgs = get_flashed_messages() %}
+    {% with msgs = get_flashed_messages(with_categories=true) %}
       {% if msgs %}
         <ul class="flash">
-          {% for m in msgs %}
-            <li>{{ m }}</li>
+          {% for cat, msg in msgs %}
+            <li class="{{ cat }}">{{ msg }}</li>
           {% endfor %}
         </ul>
       {% endif %}

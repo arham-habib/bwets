@@ -1,0 +1,11 @@
+- [X] Add password page at the front
+- [X] Cache the email
+- [X] Add padding to the rules
+- [X] Fix the mobile sizing
+- [X] Vertically arrange the different Divisions in the "Advance" page -- so each division has their own table, and you can toggle divisions
+- [X] Button to link back to the home page across different pages
+- [X] Change the decimal odds to percentage odds
+- [X] Figure out why the "Finals" page is throwing a 404 error
+- [X] Every notification banner is being duplicated, figure out why and change it (for login, placing a bet, etc etc)
+- [X] Add consistent side padding to all pages (like rules page)
+- [X] Add toggleable division summary tables to both Advance and Win pages

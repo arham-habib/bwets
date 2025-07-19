@@ -1,50 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="page-content">
 <h2>Advance Market</h2>
 <p class="pool-line">Pool total: ${{ "%.2f"|format(pool_total) }}</p>
 
-<h3>Current Odds (Summary)</h3>
-<table class="odds-summary">
-  <thead>
-    <tr>
-      <th>Division</th>
-      <th>Heat</th>
-      <th>Player Link</th>
-      <th>Decimal Odds</th>
-      <th>American Odds</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for div_name, heats in divisions.items() %}
-      {% for heat_num, runners in heats|dictsort %}
-        {% for p in runners %}
-          {% set o = odds.get(p.id|string, {"prob": 0, "stake": 0}) %}
-          {% if o.prob > 0 %}
-            {% set dec_odds = (1 / o.prob)|round(2) %}
-            {% if dec_odds == 1 %}
-              {% set am_str = "EVEN" %}
-            {% elif dec_odds >= 2 %}
-              {% set am_str = '+' ~ ((dec_odds - 1) * 100)|round(0)|int %}
+<h3>Current Odds Summary</h3>
+{% for div_name, heats in divisions.items() %}
+  <details class="division-summary" {% if loop.first %}open{% endif %}>
+    <summary>
+      {{ div_name }} Division — Total Stake ${{ div_totals[div_name]|round(2) }}
+    </summary>
+    <table class="odds-summary">
+      <thead>
+        <tr>
+          <th>Heat</th>
+          <th>Player Link</th>
+          <th>Win Probability</th>
+          <th>American Odds</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for heat_num, runners in heats|dictsort %}
+          {% for p in runners %}
+            {% set o = odds.get(p.id|string, {"prob": 0, "stake": 0}) %}
+            {% if o.prob > 0 %}
+              {% set win_prob = (o.prob * 100)|round(1) %}
+              {% set dec_odds = (1 / o.prob)|round(2) %}
+              {% if dec_odds == 1 %}
+                {% set am_str = "EVEN" %}
+              {% elif dec_odds >= 2 %}
+                {% set am_str = '+' ~ ((dec_odds - 1) * 100)|round(0)|int %}
+              {% else %}
+                {% set am_str = '-' ~ (100 / (dec_odds - 1))|round(0)|int %}
+              {% endif %}
             {% else %}
-              {% set am_str = '-' ~ (100 / (dec_odds - 1))|round(0)|int %}
+              {% set win_prob = "—" %}
+              {% set am_str = "—" %}
             {% endif %}
-          {% else %}
-            {% set dec_odds = "—" %}
-            {% set am_str = "—" %}
-          {% endif %}
-          <tr>
-            <td>{{div_name }}</td>
-            <td>{{ heat_num }}</td>
-            <td><a href="#player-{{ p.id }}">{{ p.player_name }}</a></td>
-            <td>{{ dec_odds }}</td>
-            <td>{{ am_str }}</td>
-          </tr>
+            <tr>
+              <td>{{ heat_num }}</td>
+              <td><a href="#player-{{ p.id }}">{{ p.player_name }}</a></td>
+              <td>{{ win_prob }}%</td>
+              <td>{{ am_str }}</td>
+            </tr>
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
-    {% endfor %}
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </details>
+{% endfor %}
 
+<h3>Place Bets</h3>
 {% for div_name, heats in divisions.items() %}
   <details class="division" {% if loop.first %}open{% endif %}>
     <summary>
@@ -68,8 +74,8 @@
                 <form action="{{ url_for('bet') }}" method="post" class="bet-form">
                   <input type="hidden" name="market" value="advance">
                   <input type="hidden" name="target_id" value="{{ p.id }}">
-                  <label>E‑mail <input type="email" name="email" required size="20" maxlength="40"></label>
-                  <label>$ <input type="number" name="amount" step="0.01" required size="6" maxlength="10"></label>
+                  <input type="hidden" name="email" value="{{ session.get('user_email', '') }}">
+                  <label>$ <input type="number" name="amount" step="0.01" required size="6" maxlength="10" placeholder="0.00"></label>
                   <button type="submit" maxlength="10">Bet</button>
                 </form>
               </div>
@@ -82,4 +88,5 @@
     </div>
   </details>
 {% endfor %}
+</div>
 {% endblock %}

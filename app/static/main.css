@@ -1,7 +1,8 @@
 body { margin:0; background:#111; color:#eee; font-family:system-ui,sans-serif; }
 a   { color:#5ad; text-decoration:none; }
-header { background:#000; padding:1rem; display:flex; justify-content:space-between; }
-nav a { margin-left:1rem; }
+header { background:#000; padding:1rem; display:flex; justify-content:space-between; align-items:center; }
+nav a { margin-left:1rem; color:#5ad; text-decoration:none; padding:0.5rem 1rem; border-radius:4px; transition:background-color 0.2s; }
+nav a:hover { background:#333; }
 .hero { text-align:center; margin-top:2rem; }
 .big { font-size:3rem; font-weight:bold; }
 .card { background:#222; padding:1rem; margin:1rem 0; border-radius:8px; }
@@ -11,17 +12,138 @@ nav a { margin-left:1rem; }
 
 header { text-align:center; }
 .actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin:2rem 0; }
-.btn { background:#333; padding:1rem 2rem; border-radius:10px; text-align:center; color:#fff; width:160px; }
+.btn { background:#333; padding:1rem 2rem; border-radius:10px; text-align:center; color:#fff; min-width:160px; max-width:100%; }
 .btn:hover { background:#555; }
 .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
 .name { font-size:1.2rem; font-weight:bold; }
 .flash li.error { background:#722; }
+.flash li.success { background:#272; }
+
+/* Page content styling */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Rules section styling */
+.rules {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.rules h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #5ad;
+}
+
+.rules ul {
+  margin-bottom: 1.5rem;
+}
+
+.rules li {
+  margin-bottom: 0.5rem;
+}
+
+/* Authentication forms */
+.auth-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #eee;
+}
+
+.form-group input {
+  font-family: inherit;
+  background: #333;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 0.8rem;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5ad;
+  box-shadow: 0 0 0 2px rgba(85, 170, 221, 0.2);
+}
+
+.btn-primary {
+  background: #5ad !important;
+  color: #000 !important;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background: #7cf !important;
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.auth-links a {
+  color: #5ad;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.welcome {
+  text-align: center;
+  background: #222;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.welcome a {
+  color: #5ad;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+.welcome a:hover {
+  text-decoration: underline;
+}
 
 
 /* accordion styling */
-details { border:1px solid #444; border-radius:6px; margin:0.5rem 0; }
+details { border:1px solid #444; border-radius:6px; margin:1rem 0; }
 details[open] > summary { background:#333; }
-summary { cursor:pointer; padding:0.5rem 1rem; user-select:none; }
+summary { cursor:pointer; padding:0.8rem 1rem; user-select:none; font-weight:bold; }
+details.division > summary { background:#222; color:#5ad; }
+details.division[open] > summary { background:#333; }
+details.division-summary > summary { background:#222; color:#5ad; font-weight:bold; padding:1rem; }
+details.division-summary[open] > summary { background:#333; }
+details.division-summary { margin:1.5rem 0; }
 
 /* bodies */
 .div-body, .heat-body { padding:0.5rem 1rem; }
@@ -96,7 +218,110 @@ summary { cursor:pointer; padding:0.5rem 1rem; user-select:none; }
   border-collapse: separate;
   border-spacing: 20px 10px;
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
 }
 .odds-summary th, .odds-summary td {
   padding: 10px 15px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .big { font-size: 2rem; }
+  
+  .btn { 
+    min-width: 140px; 
+    padding: 0.8rem 1.5rem; 
+    font-size: 0.9rem; 
+  }
+  
+  .actions { 
+    gap: 0.5rem; 
+    margin: 1rem 0; 
+  }
+  
+  .odds-summary {
+    border-spacing: 10px 5px;
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .odds-summary th, .odds-summary td {
+    padding: 5px 8px;
+  }
+  
+  .card { 
+    padding: 0.8rem; 
+    margin: 0.8rem 0; 
+  }
+  
+  .bet-form input[type="email"] { max-width: 100%; }
+  .bet-form input[type="number"] { max-width: 100%; }
+  .bet-form button { max-width: 100%; }
+  
+  .prop-sides { 
+    flex-direction: column; 
+    gap: 0.5rem; 
+  }
+  
+  .side-form { 
+    width: 100%; 
+    max-width: 200px; 
+    margin: 0 auto; 
+  }
+  
+  .grid { 
+    grid-template-columns: 1fr; 
+    gap: 0.8rem; 
+  }
+  
+  header { 
+    padding: 0.8rem; 
+  }
+  
+  .hero { 
+    margin-top: 1rem; 
+  }
+  
+  .rules {
+    padding: 0 1rem;
+  }
+  
+  .rules h3 {
+    font-size: 1.2rem;
+  }
+  
+  .rules p, .rules li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .big { font-size: 1.5rem; }
+  
+  .btn { 
+    min-width: 120px; 
+    padding: 0.6rem 1rem; 
+    font-size: 0.8rem; 
+  }
+  
+  .odds-summary {
+    font-size: 0.8rem;
+  }
+  
+  .odds-summary th, .odds-summary td {
+    padding: 3px 5px;
+  }
+  
+  .card { 
+    padding: 0.6rem; 
+  }
+  
+  .bet-form { 
+    padding: 0.5rem; 
+  }
 }

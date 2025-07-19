@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="page-content">
 <h2>Prop Bets</h2>
 <p class="pool-line">Total Prop Pool: ${{ "%.2f"|format(pool_total) }}</p>
 
@@ -15,33 +16,32 @@
       {# ───── YES side ───── #}
       <form action="{{ url_for('bet') }}" method="post" class="bet-form">
         Yes<br>
-        Stake $ {{ oy.stake }}<br>
-        {{ (oy.prob*100)|round(1) }} %<br>
+        Stake $ {{ oy.stake }}<br>
+        {{ (oy.prob*100)|round(1) }} %<br>
         <input type="hidden" name="market" value="prop">
         <input type="hidden" name="target_id" value="{{ pr.id }}">
         <input type="hidden" name="side_yes" value="true">
-        <label><input type="email"  name="email"  placeholder="you@bwater.com"
-                      required size="16" maxlength="40"></label>
+        <input type="hidden" name="email" value="{{ session.get('user_email', '') }}">
         <label><input type="number" name="amount" placeholder="$0.00"
                       step="0.01" required size="6" maxlength="10"></label>
-        <button type="submit">Bet Yes</button>
+        <button type="submit">Bet Yes</button>
       </form>
 
       {# ───── NO side ───── #}
       <form action="{{ url_for('bet') }}" method="post" class="bet-form">
         No<br>
-        Stake $ {{ on.stake }}<br>
-        {{ (on.prob*100)|round(1) }} %<br>
+        Stake $ {{ on.stake }}<br>
+        {{ (on.prob*100)|round(1) }} %<br>
         <input type="hidden" name="market" value="prop">
         <input type="hidden" name="target_id" value="{{ pr.id }}">
         <input type="hidden" name="side_yes" value="false">
-        <label><input type="email"  name="email"  placeholder="you@bwater.com"
-                      required size="16" maxlength="40"></label>
+        <input type="hidden" name="email" value="{{ session.get('user_email', '') }}">
         <label><input type="number" name="amount" placeholder="$0.00"
                       step="0.01" required size="6" maxlength="10"></label>
-        <button type="submit">Bet No</button>
+        <button type="submit">Bet No</button>
       </form>
     </div>
   </div>
 {% endfor %}
+</div>
 {% endblock %}

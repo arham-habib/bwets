@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="page-content">
 <section class="hero">
   <h2>Total Wagered</h2>
   <p class="big">${{ "%.2f"|format(cum) }}</p>
 </section>
 
+{% if session.get('user_email') %}
+  <section class="welcome">
+    <p>Welcome, {{ session.get('user_email') }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+  </section>
+{% endif %}
+
 <section class="actions">
   {% set buttons = [
     {"href": "/advance", "title": "Advance Odds", "desc": "Who makes it out of the heats?"},
-    {"href": "/finals", "title": "Finals Odds", "desc": "Who wins the whole thing?"},
+    {"href": "/win", "title": "Win Odds", "desc": "Who wins the whole thing?"},
     {"href": "/props", "title": "Prop Bets", "desc": "Head-to-heads, departments, and more"},
     {"href": "/rules", "title": "Rules", "desc": "How betting works"}
   ] %}
@@ -22,4 +29,5 @@
 
   <p class="credit full">by arham and crawford</p>
 </section>
+</div>
 {% endblock %}
