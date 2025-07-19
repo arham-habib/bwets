@@ -91,3 +91,14 @@ summary { cursor:pointer; padding:0.5rem 1rem; user-select:none; }
 .credit { font-size:0.9rem; color:#888; margin-top:0.3rem; }
 .credit.full { flex-basis:100%; text-align:center; margin-top:1rem; }
 
+<style>
+.odds-summary {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+  text-align: center;
+}
+.odds-summary th, .odds-summary td {
+  padding: 10px 15px;
+}
+</style>
